@@ -5,57 +5,57 @@
 ```mermaid
 
 classDiagram
-    class Maps {
-        -String tipo
-        -tipObjetes objetinipo
-        -String elemento
-        -List~Recursor~ recurso
-        -List~Vilanos~ vilanos
-        -String css
-        +general(Mapad)
-        +codecarRecursos()
-        +codecarVilanos()
+    class Mapas {
+        -tipoMundo tipo
+        -tipObjetos objetoTipo
+        -String descripcion
+        -List<Recurso*> recursos
+        -List<Villano*> vilanos
+        -String casa
+        +generarMapa()
+        +colocarRecursos()
+        +colocarVillanos()
     }
 
     class Recursos {
         -int posx
-        -int popy
+        -int posy
         -String formalDelRecurso
         -bool activo
-        +dbLightRecursol()
-        +estalactivo()
+        +dibujarRecurso()
+        +estadoActivo()
         +desaparecer()
     }
 
     class Personaje {
         -int x
         -int y
-        -String aprile
+        -String sprite
         -String nombre
         +mover(direccion)
-        +dbLight()
-        +bonzini()
-        +int gpKXU
-        +int gptYU
+        +dibujar()
+        +borrar()
+        +int getx()
+        +int gety()
         +getSprint()
     }
 
-    class Vilano {
-        +robot()
-        +mover(Maxiorlo())
+    class Villano {
+        +robar()
+        +moverAleatorio()
     }
 
-    class Jaguider {
-        -int candida@Diamante
-        -int candida@Forest
-        -int candida@FuenteDeLuz
+    class Jugador {
+        -int cantidadDiamante
+        -int cantidadFlores
+        -int cantidadFuenteDeLuz
         +recoger()
-        +mostrarinv()
+        +mostrarInventario()
         +objetino()
     }
 
-    class Alsa6 {
-        +a.yudis()
+    class Aliado {
+        +ayuda()
     }
 
     class GameManager {
@@ -64,17 +64,20 @@ classDiagram
         -int objetinologua = 50
         -int objetinobedera = 50
         -int objetineRoca = 5
-        +iniciativa(megro)
-        +actualizar(Tiempo())
-        +verificar(victoria)
-        +verificar(borrosa)
+        +iniciativaNegro
+        +actualizarTiempo()
+        +verificarVictoria()
+        +verificarDerrota()
     }
 
-    Maps "1" *-- "many" Recursos : contains
-    Maps "1" *-- "many" Vilano : contains
-    Personaje <|-- Jaguider : inheritance
-    Jaguider --> Recursos : recoger
-    GameManager --> Maps : manages
-    GameManager --> Personaje : controls
-    Vilano --|> Personaje : inheritance
-    Alsa6 --> Jaguider : assists
+    Mapas "1" *-- "many" Recursos : contains
+    Mapas "1" *-- "many" Personaje: contains
+    Personaje <|-- Jugador : inheritance
+    Jugador --> Recursos : recoger
+    GameManager "3" *--  Mapas : manages
+    GameManager *-- Jugador 
+    Personaje <|-- Villano : inheritance
+    Personaje <|-- Aliados : inheritance
+    Jugador "1" o-- "1" recursos : contains
+    Menu "1" *-- "1" GameManager : contains
+    note for[Jugador] "El diamante representa aprender,  las flores representan humanidad y las fuentes de luz la estabilidad IA y humano"
