@@ -1,3 +1,9 @@
+# Informe del Trabajo final 
+
+## Diagrama de clases 
+
+```mermaid
+
 classDiagram
     class Maps {
         -String tipo
