@@ -77,7 +77,7 @@ classDiagram
     GameManager "3" *--  Mapas : manages
     GameManager *-- Jugador 
     Personaje <|-- Villano : inheritance
-    Personaje <|-- Aliados : inheritance
+    Personaje <|-- Aliado : inheritance
     Jugador "1" o-- "1" recursos : contains
     Menu "1" *-- "1" GameManager : contains
     mapas "1" o-- "many" recursos : contains
