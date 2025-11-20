@@ -80,4 +80,4 @@ classDiagram
     Personaje <|-- Aliados : inheritance
     Jugador "1" o-- "1" recursos : contains
     Menu "1" *-- "1" GameManager : contains
-    note for[Jugador] "El diamante representa aprender,  las flores representan humanidad y las fuentes de luz la estabilidad IA y humano"
+    note for [Jugador] "El diamante representa aprender,  las flores representan humanidad y las fuentes de luz la estabilidad IA y humano"
